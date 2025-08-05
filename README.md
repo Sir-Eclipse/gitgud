@@ -6,8 +6,7 @@
 
 **[Live Website](https://your-framer-site-link.com) | [Project Board](https://link-to-your-trello-or-notion.com)**
 
-![Gitgud Website Screenshot](<img width="1177" height="785" alt="image" src="https://github.com/user-attachments/assets/612dae23-2563-4fde-9e3d-1d4bc107feba" />
-)
+![Gitgud Website Screenshot](./assets/home-page.png)
 
 ## The Genesis: Slaying the Dragon of Information Overload 🐉
 
