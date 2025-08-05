@@ -1,0 +1,148 @@
+{
+  "name": "Gitgud",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "acfe06cc-6f3b-4031-bb8b-94330c8f65ff",
+      "name": "When chat message received",
+      "webhookId": "e2961c56-0553-4148-b830-2f2b0d26610b"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "Hello! You may contact me if you're looking for anything in particular or any other assistance required.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "04bee71f-d10a-4175-a3ff-1eff8942964b",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        80,
+        208
+      ],
+      "id": "df6362bb-0595-411d-bd64-6c4290c616bf",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "srW8VXL9rgrBmGln",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        304,
+        224
+      ],
+      "id": "f21b524c-3c50-4864-a8cc-32455eb1e90e",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-flash-lite",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash-lite"
+        },
+        "simplify": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Simplify_Output', ``, 'boolean') }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGeminiTool",
+      "typeVersion": 1,
+      "position": [
+        480,
+        208
+      ],
+      "id": "a69833b4-b0d4-4893-bd97-f9f7573a95ab",
+      "name": "Message a model in Google Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "srW8VXL9rgrBmGln",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model in Google Gemini": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b1d092b3-b492-4189-ad06-50ae8b690d82",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "02524e56c53bd51ab09070cb9ff7531bd88af6c77f297c30c724ace79239874a"
+  },
+  "id": "tJx1WdIDFEZyktsg",
+  "tags": []
+}
