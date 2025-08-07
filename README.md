@@ -4,7 +4,7 @@
 
 ---
 
-**[Live Website](https://your-framer-site-link.com) | [Framer Link](https://framer.com/projects/Waitlister-copy--nEEqvGw79rUKsmROGNu0-aDPW7)**
+**[Live Website](********) | [Framer Link](https://framer.com/projects/Waitlister-copy--nEEqvGw79rUKsmROGNu0-aDPW7)**
 
 ![Gitgud Website Screenshot](./assets/home-page.png)
 
